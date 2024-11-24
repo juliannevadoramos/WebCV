@@ -135,8 +135,16 @@
     <script>
         // Toggle contenido en móviles
         function toggleContent(element) {
-             element.classList.toggle('active');
+            // Cierra todas las secciones antes de abrir la seleccionada
+            var allItems = document.querySelectorAll('.grid-item');
+            allItems.forEach(function(item) {
+                item.classList.remove('active');
+            });
+
+            // Abre la sección seleccionada
+            element.classList.add('active');
         }
     </script>
 </body>
 </html>
+
