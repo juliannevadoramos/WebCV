@@ -21,6 +21,13 @@
 
             .grid-item {
                 margin-bottom: 1rem;
+                height: 150px; /* Altura fija para todas las secciones */
+                overflow: hidden; /* Ocultar contenido desbordado */
+                transition: height 0.3s ease; /* Transición suave al cambiar la altura */
+            }
+
+            .grid-item.active {
+                height: auto; /* Altura automática para mostrar el contenido */
             }
 
             /* Ocultar contenido inicialmente */
@@ -139,11 +146,20 @@
             gridItems.forEach(item => {
                 if (item !== element) {
                     item.classList.remove('active');
+                    const content = item.querySelector('.grid-item-content');
+                    if (content) {
+                        content.style.display = 'none';
+                    }
                 }
             });
             element.classList.toggle('active');
+            const content = element.querySelector('.grid-item-content');
+            if (content) {
+                content.style.display = content.style.display === 'flex' ? 'none' : 'flex';
+            }
         }
     </script>
 </body>
 </html>
+
 
