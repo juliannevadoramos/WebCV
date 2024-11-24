@@ -21,13 +21,6 @@
 
             .grid-item {
                 margin-bottom: 1rem;
-                height: 150px; /* Altura fija para todas las secciones */
-                overflow: hidden; /* Ocultar contenido desbordado */
-                transition: height 0.3s ease; /* Transición suave al cambiar la altura */
-            }
-
-            .grid-item.active {
-                height: auto; /* Altura automática para mostrar el contenido */
             }
 
             /* Ocultar contenido inicialmente */
@@ -35,11 +28,23 @@
                 display: none;
             }
 
-            /* Mostrar contenido al hacer clic */
+            /* Mostrar contenido cuando esté activo */
             .grid-item.active .grid-item-content {
                 display: flex;
                 flex-direction: column;
                 align-items: center;
+            }
+
+            /* Mantener el estilo de las secciones visitadas */
+            .grid-item.visited .grid-item-content {
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+            }
+
+            /* Ocultar títulos cuando una sección haya sido visitada */
+            .grid-item.visited h2 {
+                display: none;
             }
         }
     </style>
@@ -61,19 +66,19 @@
     <!-- Secciones en Grid -->
     <div class="grid-container grid grid-cols-1 md:grid-cols-3 grid-rows-2 gap-0 w-full min-h-[80vh]">
         <!-- Sobre Mí -->
-        <div class="grid-item hover-animation p-8 flex items-center justify-center cursor-pointer group bg-white hover:bg-gray-800 hover:text-white transition duration-500" onclick="toggleContent(this)">
+        <div class="grid-item hover-animation p-8 flex items-center justify-center cursor-pointer group bg-white text-black hover:bg-gray-800 hover:text-white transition duration-500" onclick="toggleContent(this)">
             <h2 class="text-4xl font-bold group-hover:hidden">Sobre Mí</h2>
             <div class="grid-item-content hidden group-hover:flex flex-col items-center justify-center text-2xl text-center">
-                <h2 class="text-3xl font-bold mb-4">📋 Sobre Mí</h2>
+                <h1 class="text-3xl font-bold mb-4">📋 Sobre Mí</h1>
                 <p>Soy un apasionado de la tecnología y sus distintas ramas. He finalizado hace escasos meses mis estudios y estoy buscando una oportunidad laboral que me permita poner en práctica lo aprendido y adentrarme en todo aquello que aún me queda por conocer, poniendo mi talento y mis capacidades al servicio del desarrollo y la innovación en el sector IT.</p>
             </div>
         </div>
 
         <!-- Estudios -->
-        <div class="grid-item hover-animation p-8 flex items-center justify-center cursor-pointer group bg-gray-800 hover:bg-white hover:text-black transition duration-500" onclick="toggleContent(this)">
-            <h2 class="text-4xl text-white font-bold group-hover:hidden">Estudios</h2>
+        <div class="grid-item hover-animation p-8 flex items-center justify-center cursor-pointer group bg-gray-800 text-white hover:bg-gray-800 hover:text-white transition duration-500" onclick="toggleContent(this)">
+            <h2 class="text-4xl font-bold group-hover:hidden">Estudios</h2>
             <div class="grid-item-content hidden group-hover:flex flex-col items-center justify-center text-2xl text-center">
-                <h2 class="text-3xl font-bold mb-4">🎓 Estudios</h2>
+                <h1 class="text-3xl font-bold mb-4">🎓 Estudios</h1>
                 <ul class="list-disc list-inside space-y-2">
                     <li>Grado en Ingeniería del Software - Universidad Politécnica de Madrid (2019-2024)</li>
                 </ul>
@@ -81,10 +86,10 @@
         </div>
 
         <!-- Experiencia Laboral -->
-        <div class="grid-item hover-animation p-8 flex items-center justify-center cursor-pointer group bg-white hover:bg-gray-800 hover:text-white transition duration-500" onclick="toggleContent(this)">
+        <div class="grid-item hover-animation p-8 flex items-center justify-center cursor-pointer group bg-white text-black hover:bg-gray-800 hover:text-white transition duration-500" onclick="toggleContent(this)">
             <h2 class="text-4xl font-bold group-hover:hidden">Experiencia Laboral</h2>
             <div class="grid-item-content hidden group-hover:flex flex-col items-center justify-center text-2xl text-center">
-                <h2 class="text-3xl font-bold mb-4">💼 Experiencia Laboral</h2>
+                <h1 class="text-3xl font-bold mb-4">💼 Experiencia Laboral</h1>
                 <ul class="list-disc list-inside space-y-2">
                     <li>Analista de Datos - Cognodata Consulting S.L. (2023)</li>
                 </ul>
@@ -92,10 +97,10 @@
         </div>
 
         <!-- Habilidades -->
-        <div class="grid-item hover-animation p-8 flex items-center justify-center cursor-pointer group bg-gray-800 hover:bg-white hover:text-black transition duration-500" onclick="toggleContent(this)">
-            <h2 class="text-4xl text-white font-bold group-hover:hidden">Habilidades</h2>
+        <div class="grid-item hover-animation p-8 flex items-center justify-center cursor-pointer group bg-gray-800 text-white hover:bg-gray-800 hover:text-white transition duration-500" onclick="toggleContent(this)">
+            <h2 class="text-4xl font-bold group-hover:hidden">Habilidades</h2>
             <div class="grid-item-content hidden group-hover:flex flex-col items-center justify-center text-2xl text-center">
-                <h2 class="text-3xl font-bold mb-4">🔧 Habilidades</h2>
+                <h1 class="text-3xl font-bold mb-4">🔧 Habilidades</h1>
                 <ul class="list-disc list-inside grid grid-cols-2 gap-x-8 gap-y-2 text-left">
                     <li>SQL</li>
                     <li>Java</li>
@@ -108,10 +113,10 @@
         </div>
 
         <!-- Soft Skills -->
-        <div class="grid-item hover-animation p-8 flex items-center justify-center cursor-pointer group bg-white hover:bg-gray-800 hover:text-white transition duration-500" onclick="toggleContent(this)">
-            <h2 class="text-4xl font-bold group-hover:hidden">Soft Skills</h2>
+        <div class="grid-item hover-animation p-8 flex items-center justify-center cursor-pointer group bg-white text-black hover:bg-gray-800 hover:text-white transition duration-500" onclick="toggleContent(this)">
+            <h1 class="text-4xl font-bold group-hover:hidden">Soft Skills</h1>
             <div class="grid-item-content hidden group-hover:flex flex-col items-center justify-center text-2xl text-center">
-                <h2 class="text-3xl font-bold mb-4">🤝 Soft Skills</h2>
+                <h1 class="text-3xl font-bold mb-4">🤝 Soft Skills</h1>
                 <ul class="list-disc list-inside grid grid-cols-2 gap-x-8 gap-y-2 text-left">
                     <li>Trabajo en Equipo</li>
                     <li>Creatividad</li>
@@ -124,10 +129,10 @@
         </div>
 
         <!-- Contacto -->
-        <div class="grid-item hover-animation p-8 flex items-center justify-center cursor-pointer group bg-gray-800 hover:bg-white hover:text-black transition duration-500" onclick="toggleContent(this)">
-            <h2 class="text-4xl text-white font-bold group-hover:hidden">Contacto</h2>
+        <div class="grid-item hover-animation p-8 flex items-center justify-center cursor-pointer group bg-gray-800 text-white hover:bg-gray-800 hover:text-white transition duration-500" onclick="toggleContent(this)">
+            <h2 class="text-4xl font-bold group-hover:hidden">Contacto</h2>
             <div class="grid-item-content hidden group-hover:flex flex-col items-center justify-center text-2xl text-center">
-                <h2 class="text-3xl font-bold mb-4">📞 Contacto</h2>
+                <h1 class="text-3xl font-bold mb-4">📞 Contacto</h1>
                 <p>Email: <a href="mailto:juanperez@example.com" class="text-blue-400">junera184@hotmail.com</a></p>
                 <p>Teléfono: <a href="tel:+1234567890" class="text-blue-400">644194865</a></p>
             </div>
@@ -140,22 +145,29 @@
     </div>
 
     <script>
-        // Toggle contenido en móviles
+        // Función para alternar contenido y mantener el estado visual
         function toggleContent(element) {
-            const gridItems = document.querySelectorAll('.grid-item');
-            gridItems.forEach(item => {
-                if (item !== element) {
-                    item.classList.remove('active');
-                    const content = item.querySelector('.grid-item-content');
-                    if (content) {
-                        content.style.display = 'none';
-                    }
-                }
+            // Remover la clase 'active' de todas las secciones
+            const allSections = document.querySelectorAll('.grid-item');
+            allSections.forEach(section => {
+                section.classList.remove('active');
+                section.classList.remove('bg-gray-800');
+                section.classList.remove('text-white');
+                section.classList.remove('bg-white');
+                section.classList.remove('text-black');
             });
-            element.classList.toggle('active');
-            const content = element.querySelector('.grid-item-content');
-            if (content) {
-                content.style.display = content.style.display === 'flex' ? 'none' : 'flex';
+
+            // Activar la sección seleccionada
+            element.classList.add('active');
+            if (element.classList.contains('bg-gray-800')) {
+                element.classList.add('bg-white', 'text-black');
+            } else {
+                element.classList.add('bg-gray-800', 'text-white');
+            }
+
+            // Si la sección no ha sido visitada, marcarla como visitada
+            if (!element.classList.contains('visited')) {
+                element.classList.add('visited');
             }
         }
     </script>
