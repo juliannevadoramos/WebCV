@@ -7,12 +7,12 @@
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://fonts.googleapis.com/css2?family=Pacifico&family=Roboto:wght@300&family=Montserrat:wght@700&display=swap" rel="stylesheet">
     <style>
-        /* Animación de transición */
+       
         .hover-animation {
             transition: background-color 0.3s ease, color 0.3s ease;
         }
 
-        /* Media Query para móviles */
+       
         @media (max-width: 768px) {
             .grid-container {
                 display: flex;
@@ -23,26 +23,26 @@
                 margin-bottom: 1rem;
             }
 
-            /* Ocultar contenido inicialmente */
+           
             .grid-item-content {
                 display: none;
             }
 
-            /* Mostrar contenido cuando esté activo */
+           
             .grid-item.active .grid-item-content {
                 display: flex;
                 flex-direction: column;
                 align-items: center;
             }
 
-            /* Mantener el estilo de las secciones visitadas */
+          
             .grid-item.visited .grid-item-content {
                 display: flex;
                 flex-direction: column;
                 align-items: center;
             }
 
-            /* Ocultar títulos cuando una sección haya sido visitada */
+           
             .grid-item.visited h2 {
                 display: none;
             }
@@ -50,7 +50,7 @@
     </style>
 </head>
 <body class="font-roboto min-h-screen bg-gray-50">
-    <!-- Contenedor Principal -->
+    <!-- Cont Ppal -->
     <div class="flex flex-col items-center p-4 bg-white shadow-lg text-center mb-0">
         <img src="https://media.licdn.com/dms/image/v2/D4D03AQHCUP5F85wh8w/profile-displayphoto-shrink_800_800/profile-displayphoto-shrink_800_800/0/1666700419867?e=1737590400&v=beta&t=VaZ45jlejq5w9TZJKnfDQZyuIs0IvsLs2PjMaphtUlA" alt="Foto de perfil" class="w-48 h-48 rounded-full shadow-md mb-2">
         <h1 class="text-4xl font-bold font-montserrat mb-1">Julián Nevado</h1>
@@ -63,7 +63,7 @@
         </div>
     </div>
 
-    <!-- Secciones en Grid -->
+    <!-- Grid -->
     <div class="grid-container grid grid-cols-1 md:grid-cols-3 grid-rows-2 gap-0 w-full min-h-[80vh]">
         <!-- Sobre Mí -->
         <div class="grid-item hover-animation p-8 flex items-center justify-center cursor-pointer group bg-white text-black hover:bg-gray-800 hover:text-white transition duration-500" onclick="toggleContent(this)">
@@ -133,8 +133,8 @@
             <h2 class="text-4xl font-bold group-hover:hidden">Contacto</h2>
             <div class="grid-item-content hidden group-hover:flex flex-col items-center justify-center text-2xl text-center">
                 <h1 class="text-3xl font-bold mb-4">📞 Contacto</h1>
-                <p>Email: <a href="mailto:juanperez@example.com" class="text-blue-400">junera184@hotmail.com</a></p>
-                <p>Teléfono: <a href="tel:+1234567890" class="text-blue-400">644194865</a></p>
+                <p>Email: <a href="mailto:junera184@hotmail.com" class="text-blue-400">junera184@hotmail.com</a></p>
+                <p>Teléfono: <a href="tel:644194865" class="text-blue-400">644194865</a></p>
             </div>
         </div>
     </div>
@@ -145,9 +145,9 @@
     </div>
 
     <script>
-        // Función para alternar contenido y mantener el estado visual
+       
         function toggleContent(element) {
-            // Remover la clase 'active' de todas las secciones
+           
             const allSections = document.querySelectorAll('.grid-item');
             allSections.forEach(section => {
                 section.classList.remove('active');
@@ -157,7 +157,7 @@
                 section.classList.remove('text-black');
             });
 
-            // Activar la sección seleccionada
+           
             element.classList.add('active');
             if (element.classList.contains('bg-gray-800')) {
                 element.classList.add('bg-white', 'text-black');
@@ -165,7 +165,7 @@
                 element.classList.add('bg-gray-800', 'text-white');
             }
 
-            // Si la sección no ha sido visitada, marcarla como visitada
+            
             if (!element.classList.contains('visited')) {
                 element.classList.add('visited');
             }
