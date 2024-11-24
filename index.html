@@ -11,6 +11,30 @@
         .hover-animation {
             transition: background-color 0.3s ease, color 0.3s ease;
         }
+
+        /* Media Query para móviles */
+        @media (max-width: 768px) {
+            .grid-container {
+                display: flex;
+                flex-direction: column;
+            }
+
+            .grid-item {
+                margin-bottom: 1rem;
+            }
+
+            /* Ocultar contenido inicialmente */
+            .grid-item-content {
+                display: none;
+            }
+
+            /* Mostrar contenido al hacer clic */
+            .grid-item.active .grid-item-content {
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+            }
+        }
     </style>
 </head>
 <body class="font-roboto min-h-screen bg-gray-50">
@@ -21,27 +45,27 @@
         <p class="text-2xl text-gray-600 font-montserrat mb-6">Ingeniero de Software</p>
         <div class="flex space-x-2">
             <a href="https://www.linkedin.com/in/juli%C3%A1n-nevado-ramos/" class="w-12 h-12 mr-4 bg-white rounded-md flex items-center justify-center bg-center bg-cover hover:bg-white transition duration-300" style="background-image: url('https://cdn-icons-png.flaticon.com/512/174/174857.png');"> </a>
-            <a href="CVJulianNevado.pdf" download="CVJulianNevado.pdf" class="bg-gray-800 text-white px-4 py-2 rounded-md inline-flex items-center hover:bg-gray-600 transition duration-300">
+            <a href="CVJuliánNevado.pdf" download="CVJulianNevado.pdf" class="bg-gray-800 text-white px-4 py-2 rounded-md inline-flex items-center hover:bg-gray-600 transition duration-300">
                 <span class="text-lg font-bold">CV</span>
             </a>
         </div>
     </div>
 
     <!-- Secciones en Grid -->
-    <div class="grid grid-cols-1 md:grid-cols-3 grid-rows-2 gap-0 w-full min-h-[80vh]">
+    <div class="grid-container grid grid-cols-1 md:grid-cols-3 grid-rows-2 gap-0 w-full min-h-[80vh]">
         <!-- Sobre Mí -->
-        <div class="hover-animation p-8 flex items-center justify-center cursor-pointer group bg-white hover:bg-gray-800 hover:text-white transition duration-500">
+        <div class="grid-item hover-animation p-8 flex items-center justify-center cursor-pointer group bg-white hover:bg-gray-800 hover:text-white transition duration-500" onclick="toggleContent(this)">
             <h2 class="text-4xl font-bold group-hover:hidden">Sobre Mí</h2>
-            <div class="hidden group-hover:flex flex-col items-center justify-center text-2xl text-center">
+            <div class="grid-item-content hidden group-hover:flex flex-col items-center justify-center text-2xl text-center">
                 <h2 class="text-3xl font-bold mb-4">📋 Sobre Mí</h2>
                 <p>Soy un apasionado de la tecnología y sus distintas ramas. He finalizado hace escasos meses mis estudios y estoy buscando una oportunidad laboral que me permita poner en práctica lo aprendido y adentrarme en todo aquello que aún me queda por conocer, poniendo mi talento y mis capacidades al servicio del desarrollo y la innovación en el sector IT.</p>
             </div>
         </div>
 
         <!-- Estudios -->
-        <div class="hover-animation p-8 flex items-center justify-center cursor-pointer group bg-gray-800 hover:bg-white hover:text-black transition duration-500">
+        <div class="grid-item hover-animation p-8 flex items-center justify-center cursor-pointer group bg-gray-800 hover:bg-white hover:text-black transition duration-500" onclick="toggleContent(this)">
             <h2 class="text-4xl text-white font-bold group-hover:hidden">Estudios</h2>
-            <div class="hidden group-hover:flex flex-col items-center justify-center text-2xl text-center">
+            <div class="grid-item-content hidden group-hover:flex flex-col items-center justify-center text-2xl text-center">
                 <h2 class="text-3xl font-bold mb-4">🎓 Estudios</h2>
                 <ul class="list-disc list-inside space-y-2">
                     <li>Grado en Ingeniería del Software - Universidad Politécnica de Madrid (2019-2024)</li>
@@ -50,9 +74,9 @@
         </div>
 
         <!-- Experiencia Laboral -->
-        <div class="hover-animation p-8 flex items-center justify-center cursor-pointer group bg-white hover:bg-gray-800 hover:text-white transition duration-500">
+        <div class="grid-item hover-animation p-8 flex items-center justify-center cursor-pointer group bg-white hover:bg-gray-800 hover:text-white transition duration-500" onclick="toggleContent(this)">
             <h2 class="text-4xl font-bold group-hover:hidden">Experiencia Laboral</h2>
-            <div class="hidden group-hover:flex flex-col items-center justify-center text-2xl text-center">
+            <div class="grid-item-content hidden group-hover:flex flex-col items-center justify-center text-2xl text-center">
                 <h2 class="text-3xl font-bold mb-4">💼 Experiencia Laboral</h2>
                 <ul class="list-disc list-inside space-y-2">
                     <li>Analista de Datos - Cognodata Consulting S.L. (2023)</li>
@@ -60,10 +84,10 @@
             </div>
         </div>
 
-                      <!-- Habilidades -->
-        <div class="hover-animation p-8 flex items-center justify-center cursor-pointer group bg-gray-800 hover:bg-white hover:text-black transition duration-500">
+        <!-- Habilidades -->
+        <div class="grid-item hover-animation p-8 flex items-center justify-center cursor-pointer group bg-gray-800 hover:bg-white hover:text-black transition duration-500" onclick="toggleContent(this)">
             <h2 class="text-4xl text-white font-bold group-hover:hidden">Habilidades</h2>
-            <div class="hidden group-hover:flex flex-col items-center justify-center text-2xl text-center">
+            <div class="grid-item-content hidden group-hover:flex flex-col items-center justify-center text-2xl text-center">
                 <h2 class="text-3xl font-bold mb-4">🔧 Habilidades</h2>
                 <ul class="list-disc list-inside grid grid-cols-2 gap-x-8 gap-y-2 text-left">
                     <li>SQL</li>
@@ -77,9 +101,9 @@
         </div>
 
         <!-- Soft Skills -->
-        <div class="hover-animation p-8 flex items-center justify-center cursor-pointer group bg-white hover:bg-gray-800 hover:text-white transition duration-500">
+        <div class="grid-item hover-animation p-8 flex items-center justify-center cursor-pointer group bg-white hover:bg-gray-800 hover:text-white transition duration-500" onclick="toggleContent(this)">
             <h2 class="text-4xl font-bold group-hover:hidden">Soft Skills</h2>
-            <div class="hidden group-hover:flex flex-col items-center justify-center text-2xl text-center">
+            <div class="grid-item-content hidden group-hover:flex flex-col items-center justify-center text-2xl text-center">
                 <h2 class="text-3xl font-bold mb-4">🤝 Soft Skills</h2>
                 <ul class="list-disc list-inside grid grid-cols-2 gap-x-8 gap-y-2 text-left">
                     <li>Trabajo en Equipo</li>
@@ -92,12 +116,10 @@
             </div>
         </div>
 
-    
-
         <!-- Contacto -->
-        <div class="hover-animation p-8 flex items-center justify-center cursor-pointer group bg-gray-800 hover:bg-white hover:text-black transition duration-500">
+        <div class="grid-item hover-animation p-8 flex items-center justify-center cursor-pointer group bg-gray-800 hover:bg-white hover:text-black transition duration-500" onclick="toggleContent(this)">
             <h2 class="text-4xl text-white font-bold group-hover:hidden">Contacto</h2>
-            <div class="hidden group-hover:flex flex-col items-center justify-center text-2xl text-center">
+            <div class="grid-item-content hidden group-hover:flex flex-col items-center justify-center text-2xl text-center">
                 <h2 class="text-3xl font-bold mb-4">📞 Contacto</h2>
                 <p>Email: <a href="mailto:juanperez@example.com" class="text-blue-400">junera184@hotmail.com</a></p>
                 <p>Teléfono: <a href="tel:+1234567890" class="text-blue-400">644194865</a></p>
@@ -109,5 +131,12 @@
     <div class="bg-gray-100 text-center p-1 shadow-lg">
         <p>© 2024 Julián Nevado. Todos los derechos reservados.</p>
     </div>
+
+    <script>
+        // Toggle contenido en móviles
+        function toggleContent(element) {
+             element.classList.toggle('active');
+        }
+    </script>
 </body>
 </html>
